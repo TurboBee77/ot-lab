@@ -1,1 +1,23 @@
-* text eol=lf
+# 1. Automatyczne wykrywanie tekstu i wymuszenie LF jako domyślnego formatu końców linii
+* text=auto eol=lf
+
+# 2. Jawne oznaczenie typów binarnych (zapobiega uszkodzeniu plików i fałszywym konfliktom)
+# Obrazy i grafika
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.svg text eol=lf
+
+# Dokumenty i multimedia
+*.pdf binary
+*.mp4 binary
+*.mp3 binary
+
+# Pliki wykonywalne i biblioteki kompilowane
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary

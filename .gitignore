@@ -1,2 +1,19 @@
 .env
-.claude/settings.json
+.env.*
+!.env.example
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+
+# Keys and Ansible Vault password files
+*.pem
+*.key
+id_rsa
+id_ed25519
+.vault_pass*

@@ -2,7 +2,7 @@
 
 - **Version:** v0.1 (draft, to refine together)
 - **Date:** 2026-11-03
-- **Related:** ADR-0001 (working model with Claude)
+- **Related:** ADR-0001 (working model with Claude), ADR-0002 (public repository)
 
 ## Legend
 
@@ -51,7 +51,7 @@ P0 ──┬── INFRA: I1 → I2 → I3 ──┬── G2 (L2 gate)
 
 | ID | Outcome | Acceptance test |
 |---|---|---|
-| M0.1 | Private GitHub repo skeleton: protected `main`, `.gitattributes`, `.gitignore`, PR template, `.claude/settings.json` (base deny rules, `autoMemoryEnabled: false`), secret scanning | Direct push to `main` is rejected. A commit with a fake secret is blocked. `git ls-files --eol` shows LF. `/permissions` lists the deny rules from `.claude/settings.json`. Auto memory shows off in `/memory` |
+| M0.1 | Public GitHub repo skeleton (ADR-0002): protected `main`, `.gitattributes`, `.gitignore`, PR template, `.claude/settings.json` (base deny rules, `autoMemoryEnabled: false`), secret scanning | Direct push to `main` is rejected. A commit with a fake secret is blocked. `git ls-files --eol` shows LF. `/permissions` lists the deny rules from `.claude/settings.json`. Auto memory shows off in `/memory` |
 | M0.2 | `CLAUDE.md`, `STATE.md`, ADR template, ADR-0001, `ROADMAP.md`, session checklist in the repo. Account memory cleanup (M1) | A fresh session answers "what is next?" from `STATE.md` only. `/context` shows ≤ ~150 lines of always-loaded context |
 | M0.3 | First task from the phone: cloud session → PR with "State delta" | PR merged. `STATE.md` updated by me on `main` |
 
@@ -116,7 +116,7 @@ Enter **L2** after G2.2. Write an ADR with lessons learned.
 
 | ID | Outcome | Acceptance test |
 |---|---|---|
-| P5.0 | ◆ CI/CD tool: GitHub Actions + self-hosted runner in the lab (pull-based, nothing exposed) / Gitea + Woodpecker in the lab / Jenkins | ADR accepted |
+| P5.0 | ◆ CI/CD tool: GitHub Actions + self-hosted runner in the lab (pull-based, nothing exposed) / Gitea + Woodpecker in the lab / Jenkins. The repo is public: the ADR must address the self-hosted runner risk (ADR-0002) | ADR accepted |
 | P5.1 | CI on every PR: lint, tests, image build, "State delta" check (F2) | A failing test blocks the merge |
 | P5.2 | CD to the lab | After a merge to `main`, `/version` in the lab shows the new commit SHA |
 | P5.3 | First cloud scheduled task (e.g. weekly STATE/dependency check) | Report delivered on schedule |

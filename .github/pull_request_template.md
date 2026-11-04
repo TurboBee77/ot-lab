@@ -2,6 +2,9 @@
 <!-- 1–3 sentences: what this PR changes and why. -->
 
 Closes #
+## New ADR (number)
+
+## State delta
 
 ## Type of change
 - [ ] Bug fix
